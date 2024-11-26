@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: broken-app
+spec:
+  podSelector:
+    matchLabels:
+      app: broken-app
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: broken-app
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/instance: traefik-kube-system
+            app.kubernetes.io/name: traefik
+      ports:
+        - protocol: TCP
+          port: 8082
