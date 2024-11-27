@@ -34,7 +34,6 @@ spec:
               ephemeral-storage: "500Mi"
           securityContext:
             privileged: false
-            allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
             capabilities:
               drop:
