@@ -39,4 +39,4 @@ spec:
               drop:
                 - ALL
           ports:
-            - containerPort: 8082
+            - containerPort: 8080
