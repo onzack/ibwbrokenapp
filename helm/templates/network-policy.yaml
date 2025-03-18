@@ -12,11 +12,11 @@ spec:
     - from:
       - namespaceSelector:
           matchLabels:
-            kubernetes.io/metadata.name: broken-app
+            kubernetes.io/metadata.name: kube-system
         podSelector:
           matchLabels:
-            app.kubernetes.io/instance: traefik-kube-system
-            app.kubernetes.io/name: traefik
+            app.kubernetes.io/instance: rke2-ingress-nginx
+            app.kubernetes.io/name: rke2-ingress-nginx
       ports:
-        - protocol: TCP
-          port: 8082
+        - protocol: UDP
+          port: 8080

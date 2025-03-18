@@ -4,13 +4,13 @@ metadata:
   name: broken-app
 spec:
   rules:
-    - host: 127.0.0.1.broken.sslip.io
+    - host: {{ .Release.Namespace }}-broken.{{ .Values.ingress.domain }}
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: brochen-app
+                name: some-service
                 port:
                   number: 8080
